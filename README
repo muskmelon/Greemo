@@ -1,0 +1,34 @@
+
+============= Configuration Database ============= 
+
+$ mysql -uroot -p
+
+1. make sure you have 'yhdsca1_wrdp2' user identify by 'SjWB8fVUPL[o' in the local mysql database.
+    
+    mysql$ CREATE USER 'yhdsca1_wrdp2'@'localhost' identified by 'SjWB8fVUPL[o';
+    
+2. make sure you have schema 'yhdsca1_wrdp2'
+
+    mysql$ CREATE DATABASE yhdsca1_wrdp2;
+    
+3. make sure you grant all the privilege of 'yhdsca1_wrdp2' to 'yhdsca1_wrdp2' user 
+    
+    mysql$ GRANT ALL ON yhdsca1_wrdp2.* TO 'yhdsca1_wrdp2'@'localhost' identified by 'SjWB8fVUPL[o';
+
+5. if to backup the schema
+
+    $ mysqldump -h localhost -u root -p[root_password] yhdsca1_wrdp2 > path/to/yhdsca1_wrdp2.sql
+
+6. if to backup certain tables in the schema
+
+    $ mysqldump --add-drop-table -h localhost -u root -p[root_password] yhdsca1_wrdp2 (tablename tablename tablename) > path/to/yhdsca1_wrdp2.sql
+
+7. if to restore backup schema (note that it's NOT inside the mysql console)
+    
+    $ mysql -h localhost -u root -p[root_password] yhdsca1_wrdp2 < path/to/yhdsca1_wrdp2.sql
+    
+    (if no password for root user)
+    $ mysql -h localhost -u root -p yhdsca1_wrdp2 < path/to/yhdsca1_wrdp2.sql
+
+refs:
+http://codex.wordpress.org/Backing_Up_Your_Database#Using_WordPress_Database_Backup_Plugin
