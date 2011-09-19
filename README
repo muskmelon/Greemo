@@ -32,3 +32,34 @@ $ mysql -uroot -p
 
 refs:
 http://codex.wordpress.org/Backing_Up_Your_Database#Using_WordPress_Database_Backup_Plugin
+
+
+================= Git =================
+
+1. Your local git's global setup
+
+    $ git config --global user.name "Your Name"
+    $ git config --global user.email myemail@whatever.com
+
+2. Set up git AND add pub key: http://help.github.com/mac-set-up-git/
+
+3. Connect local and repo:
+    
+    $ mkdir greemo
+    $ cd greemo
+    $ git init
+    $ git remote add origin git@github.com:muskmelon/Greemo.git
+    
+4. Then you can do these now:
+    
+    $ git push -u origin master
+    $ git pull -u origin master
+
+5. Other useful Git commands:
+
+    - remove file from git WITHOUT actually delete it (and yes put the filename to .gitignore to ignore it forever)
+    ref: http://help.github.com/ignore-files/
+    $ git rm --cached filename
+
+6. if force to go back to a certain commit (undo)
+    $ git reset --hard [commit id]
