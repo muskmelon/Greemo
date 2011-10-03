@@ -63,3 +63,25 @@ http://codex.wordpress.org/Backing_Up_Your_Database#Using_WordPress_Database_Bac
 
 6. if force to go back to a certain commit (undo)
     $ git reset --hard [commit id]
+
+================= Apache =================
+
+1. check apache user of a local machine:
+
+
+================= File Permission =================
+
+It is happening quite often that when you try to do an update on plugin but Wordpress show up a FTP conection form instead, this often means that you don't have the 'write' permission for the directory which Wordpress try to access in. This results that every time when doing an upload or update or installation, you may need to grant permission to certain directories recursively OR change ownership recursively WHILE remembering to change everything back to prevent security leak. And obviously, doing this process repeating will get cumbersome. 
+
+refer: http://codex.wordpress.org/Changing_File_Permissions
+
+- basic knowledge
+user  group   everyone else
+rwx   rwx     rwx           = 421 421 421 = 777
+
+http://www.chrisabernethy.com/why-wordpress-asks-connection-info/
+http://wordpress.org/support/topic/ftp-information-for-localhost?replies=4
+
+
+
+
