@@ -1,10 +1,47 @@
-.bundle
-db/*.sqlite3
-db/schema.rb
-log/*.log
-tmp/
-Gemfile.lock
+# OS generated files #
+######################
+.DS_Store?
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Media source files #
+######################
 *.psd
 *.ai
 *.eps
+
+# Process and Socket files #
+############################
+*.pid
+*.sock
+*.ipc
+
+# Keys #
+########
+*.pem
+config/keys/*
+
+# Others #
+##########
+
+tmp/**/*
+
+vendor/gems/*
+# ignore exception
+!vendor/gems/cache/
+
+.sass-cache/*
+Gemfile.lock
+
 .redcar/*
+.bundle
+
+scripts/*
+
+# Wordpress Specific #
+######################
+wp-content/plugins/*
+wp-content/upgrade/*
+wp-content/uploads/*

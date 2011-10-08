@@ -66,22 +66,28 @@ http://codex.wordpress.org/Backing_Up_Your_Database#Using_WordPress_Database_Bac
 
 ================= Apache =================
 
-1. check apache user of a local machine:
+1. File Permission
 
-
-================= File Permission =================
+check apache user of a local machine; in Leopard, Apache is already installed, and the httpd.conf file is
+stored under /etc/apache2; check the file and search for 'User' in the config file.
+in my case, my User is www and Group pis www as well,
 
 It is happening quite often that when you try to do an update on plugin but Wordpress show up a FTP conection form instead, this often means that you don't have the 'write' permission for the directory which Wordpress try to access in. This results that every time when doing an upload or update or installation, you may need to grant permission to certain directories recursively OR change ownership recursively WHILE remembering to change everything back to prevent security leak. And obviously, doing this process repeating will get cumbersome. 
 
-refer: http://codex.wordpress.org/Changing_File_Permissions
+why this happens?
+http://www.chrisabernethy.com/why-wordpress-asks-connection-info/
+http://wordpress.org/support/topic/ftp-information-for-localhost?replies=4
 
 - basic knowledge
 user  group   everyone else
 rwx   rwx     rwx           = 421 421 421 = 777
 
-http://www.chrisabernethy.com/why-wordpress-asks-connection-info/
-http://wordpress.org/support/topic/ftp-information-for-localhost?replies=4
+http://codex.wordpress.org/Changing_File_Permissions
 
+so, for now every time I want to do an update, I change the ownership of the whole project to apache's user
 
+$ sudo chown www greemo/ -R
 
+and change it back again, works fine so far
 
+$ sudo chown muskmelon greemo/ -R
